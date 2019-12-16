@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "username": "a",
+    "password": "a",
+    "birthdate": "",
+    "age": 19,
+    "email": "ab@gmail.com",
+    "valid": true,
+    "type": "supp",
+    "groupadmin": true,
+    "grouplist": [],
+    "admingrouplist": [
+      "zz"
+    ]
+  },
+  {
+    "id": 2,
+    "username": "b",
+    "password": "b",
+    "birthdate": "1/2/19",
+    "age": "99",
+    "email": "b@b.comm",
+    "valid": true,
+    "type": "admin",
+    "groupadmin": false,
+    "gourplist": [],
+    "admingrouplist": []
+  },
+  {
+    "id": 3,
+    "username": "b",
+    "password": "b",
+    "birthdate": "1/2/1999",
+    "age": "19",
+    "email": "p@p.com",
+    "valid": "true",
+    "type": "admin",
+    "groupadmin": false,
+    "grouplist": [],
+    "admingrouplist": []
+  },
+  {
+    "id": 7,
+    "username": "b",
+    "birthdate": "1/2/1999",
+    "age": "19",
+    "email": "p@p.com",
+    "valid": "true",
+    "type": "user",
+    "groupadmin": true,
+    "grouplist": [],
+    "admingrouplist": [
+      "ww"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "admin",
+    "username": "b",
+    "birthdate": "1/2/1999",
+    "age": "19",
+    "email": "p@p.com",
+    "valid": "true",
+    "groupadmin": true,
+    "grouplist": [],
+    "admingrouplist": [
+      "ww"
+    ]
+  }
+]
