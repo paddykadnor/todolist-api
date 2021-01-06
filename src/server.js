@@ -21,23 +21,24 @@ app.use(function(req, res, next) {
 
 const port = 4200;
 
-const dbConfig = require('./connection.js');
-const mongoose = require('mongoose');
+// const dbConfig = require('./connection.js');
+// const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
-// Connecting to the database
-mongoose.connect(dbConfig.connection, {
-  useNewUrlParser: true
-}).then(() => {
-  console.log("Successfully connected to the database");    
-}).catch(err => {
-  console.log('Could not connect to the database. Exiting now...', err);
-  process.exit();
-});
+// // Connecting to the database
+// mongoose.connect(dbConfig.connection, {
+//   useNewUrlParser: true
+// }).then(() => {
+//   console.log("Successfully connected to the database");    
+// }).catch(err => {
+//   console.log('Could not connect to the database. Exiting now...', err);
+//   process.exit();
+// });
 
-require('./routes/bucket.js')(app);
-require('./routes/task.js')(app);
+// require('./routes/bucket.js')(app);
+// require('./routes/task.js')(app);
+require('./routes/group.js')(app);
 
 // listen for requests
 app.listen(port, () => {
