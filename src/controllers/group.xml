@@ -1,0 +1,42 @@
+<ENVELOPE>
+
+               <HEADER>
+
+                                <VERSION>1</VERSION>
+
+                                <TALLYREQUEST>Export</TALLYREQUEST>
+
+                                <TYPE>Data</TYPE>
+
+                                <ID>SKSStkItems</ID>
+
+               </HEADER>
+
+                <BODY>
+
+                                <DESC>
+
+                                                <STATICVARIABLES>
+
+                                                                <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+
+
+
+                                                </STATICVARIABLES>
+<TDL>
+ <TDLMESSAGE>
+    <REPORT NAME="SKSStkItems" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+    <USE>List Of Accounts</USE>
+    <DELETE>Set : AccountType       : if $$IsEmpty:##AccountType then $$SysName:Ledgers else ##AccountType</DELETE>
+    <ADD>Set : AccountType       : &quot;Stock Items&quot;</ADD>
+    <FORMS>SKSStkItems</FORMS>
+    </REPORT>
+  <FORM NAME="SKSStkItems" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+    <USE>List Of Accounts</USE>
+  </FORM>
+</TDLMESSAGE>
+
+</TDL>
+                                </DESC>
+
+                </BODY>
