@@ -17,73 +17,42 @@ exports.getAll = (req, res) => {
         },
         body:
             '<ENVELOPE>' +
-
             '<HEADER>' +
-
             '<VERSION>1</VERSION>' +
-
             '<TALLYREQUEST>Export</TALLYREQUEST>' +
-
             '<TYPE>Data</TYPE>' +
-
             '<ID>XMLStockGroups</ID>' +
-
             '</HEADER>' +
-
             '<BODY>' +
-
             '<DESC>' +
-
             '<STATICVARIABLES>' +
-
-            '<SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>' +
-            '<SVCURRENTCOMPANY>Test Company</SVCURRENTCOMPANY>' +
-
-
+            '<EXPLODEFLAG>Yes</EXPLODEFLAG> <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>' +
             '</STATICVARIABLES>' +
-            '<TDL>  <TDLMESSAGE>' +
+            '<TDL>' +
+            '<TDLMESSAGE>' +
+
             '<REPORT NAME="XMLStockGroups" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">' +
             '<USE>List Of Accounts</USE>' +
-            '<DELETE>Set : AccountType       : if $$IsEmpty:##AccountType then $$SysName:Ledgers else ##AccountType</DELETE>' +
-            '<ADD>Set : AccountType       : "Stock Groups"</ADD>' +
+            // '<DELETE>Set : AccountType       : if $$IsEmpty:##AccountType then $$SysName:Ledgers else ##AccountType</DELETE>' +
+            '<ADD>Set : AccountType       : Group</ADD>' +
             '<FORMS>XMLStockGroups</FORMS>' +
-            '<SET>SVCurrentCompany   : SVCurrentCompany</SET>' +
+            // '<SET>SVCurrentCompany   : "Demo Company"</SET>'+
             '</REPORT>' +
             '<FORM NAME="XMLStockGroups" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">' +
             '<USE>List Of Accounts</USE>' +
             '</FORM>' +
+
             '</TDLMESSAGE>' +
             '</TDL>' +
-
             '</DESC>' +
-
             '</BODY>' +
-
             '</ENVELOPE>'
-        // '<ENVELOPE>' +
-        //     '          <HEADER>' +
-        //     '               <TALLYREQUEST>Export Data</TALLYREQUEST>' +
-        //     '           </HEADER>' +
-        //     '           <BODY>' +
-        //     '           <EXPORTDATA>' +
-        //     '           <REQUESTDESC>' +
-        //     '           <REPORTNAME>Group</REPORTNAME>	' +
-        //     '           <STATICVARIABLES>' +
-        //     '                 <EXPLODEFLAG>Yes</EXPLODEFLAG>' +
-        //     '               <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>' +
-        //     '               <ACCOUNTTYPE>$$SysName:Groups</ACCOUNTTYPE> '+
-        //     '           </STATICVARIABLES>' +
-        //     '           </REQUESTDESC>' +
-        //     '           </EXPORTDATA>' +
-        //     '           </BODY>' +
-        //     '      </ENVELOPE>'
     };
 
     request(options, function (error, response, body) {
-        if (error) throw new Error(error);
+        if (error) throw new Error(error)
 
-        console.log(body);
-
+        return res.send(convert.xml2json(body))
         return res.send(body)
 
     });
@@ -94,6 +63,8 @@ exports.getAll = (req, res) => {
 // Create and Save a new task
 exports.create = (req, res) => {
     const groupName = req.body.groupName
+    const action = req.body.action
+
     const json = {
         "ENVELOPE": {
             "HEADER": {
@@ -116,7 +87,7 @@ exports.create = (req, res) => {
                             "GROUP": {
                                 "_attributes": {
                                     "NAME": groupName,
-                                    "ACTION": "Create"
+                                    "ACTION": action
                                 },
                                 "NAME.LIST": {
                                     "NAME": {

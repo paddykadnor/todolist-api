@@ -25,6 +25,7 @@
     "nodemon": "^2.0.7",
     "request": "^2.88.2",
     "socket.io": "^2.2.0",
+    "websocket": "^1.0.33",
     "xml-js": "^1.6.11"
   }
 }
